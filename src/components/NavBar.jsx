@@ -18,12 +18,24 @@ export default function NavBar() {
       </Encabezado>
       <NavbarContainer>
         <UlContainer>
-          <Li>Inicio</Li>
-          <Li>Mujer</Li>
-          <Li>Hombre</Li>
-          <Li>Infantil</Li>
-          <Li>Ofertas</Li>
-          <Li>Sobre Nosotros</Li>
+          <Li>
+            <Boton onClick={() => alert("click")}>Inicio</Boton>
+          </Li>
+          <Li>
+            <Boton onClick={() => alert("click")}>Mujer</Boton>
+          </Li>
+          <Li>
+            <Boton onClick={() => alert("click")}>Hombre</Boton>
+          </Li>
+          <Li>
+            <Boton onClick={() => alert("click")}>Infantil</Boton>
+          </Li>
+          <Li>
+            <Boton onClick={() => alert("click")}>Ofertas</Boton>
+          </Li>
+          <Li>
+            <Boton onClick={() => alert("click")}>Sobre Nosotros</Boton>
+          </Li>
         </UlContainer>
       </NavbarContainer>
     </div>
@@ -82,4 +94,18 @@ const UlContainer = styled.ul`
 
 const Li = styled.li`
   font-size: larger;
+`;
+
+const Boton = styled.button`
+  color: grey;
+  padding: 8px;
+  border-radius: 5px;
+  border: 1px solid transparent;
+
+  &:hover {
+    color: white;
+    background-color: grey;
+    border: 1px solid black;
+    cursor: pointer;
+  }
 `;
