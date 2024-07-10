@@ -1,27 +1,37 @@
-import React from "react";
-import { FaShoppingCart } from "react-icons/fa";
-import styled from "styled-components";
+import React from 'react';
+// import { FaShoppingCart } from 'react-icons/fa';
+import cart from '../assets/images/cart.jpg';
+import styled from 'styled-components';
 
 export default function CartWidget() {
-  return (
-    <Contenedor>
-      <Parrafo>2</Parrafo>
-      <FaShoppingCart style={{ "font-size": "33px" }} />
-    </Contenedor>
-  );
+	return (
+		<>
+			<img
+				src={cart}
+				alt="cart"
+				style={{
+					width: '40px',
+					position: 'relative',
+					display: 'inline-block',
+					borderRadius: '40%',
+				}}
+			/>
+			<p
+				style={{
+					position: 'absolute',
+					top: '20px', // Adjusted top position
+					right: '15px',
+					color: 'white',
+					fontWeight: 'bold',
+					backgroundColor: 'black',
+					borderRadius: '50%',
+					padding: '3px 7px',
+					fontSize: '15px',
+					transform: 'translate(-50%, -50%)',
+				}}
+			>
+				2
+			</p>
+		</>
+	);
 }
-
-const Contenedor = styled.div`
-  position: relative;
-`;
-
-const Parrafo = styled.p`
-  position: absolute;
-  color: white;
-  text-decoration: bold;
-  background-color: grey;
-  padding: 3px;
-  border-radius: 150px;
-  left: 20px;
-  bottom: 25px;
-`;
