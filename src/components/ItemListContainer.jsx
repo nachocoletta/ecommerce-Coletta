@@ -18,6 +18,7 @@ export default function ItemListContainer() {
 			.then((data) => {
 				if (!id) {
 					setProducts(data);
+					// setFilteredProducts(data);
 				} else {
 					const filtered = products.filter((prod) => prod.category === id);
 					setProducts(filtered);
