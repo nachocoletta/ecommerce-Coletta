@@ -1,0 +1,137 @@
+[
+  {
+    "id": 1,
+    "title": "Camiseta Básica Mujer",
+    "description": "Camiseta de algodón 100% para mujer en varios colores",
+    "price": 9.99,
+    "stock": 50,
+    "pictureUrl": "https://i.pinimg.com/474x/1f/70/13/1f7013df4d4f546fae244c7bf4627e8f.jpg",
+    "category": "Mujer"
+  },
+  {
+    "id": 2,
+    "title": "Jeans Clásicos Hombre",
+    "description": "Jeans de corte clásico con 5 bolsillos para hombre",
+    "price": 29.99,
+    "stock": 30,
+    "pictureUrl": "https://http2.mlstatic.com/D_NQ_NP_875031-MLA70491177438_072023-O.webp",
+    "category": "Hombre"
+  },
+  {
+    "id": 3,
+    "title": "Chaqueta de Cuero Hombre",
+    "description": "Chaqueta de cuero auténtico con forro interior para hombre",
+    "price": 99.99,
+    "stock": 10,
+    "pictureUrl": "https://safesports.com.ar/wp-content/uploads/2021/05/ROADSTER.jpg",
+    "category": "Hombre"
+  },
+  {
+    "id": 4,
+    "title": "Zapatillas Deportivas Mujer",
+    "description": "Zapatillas deportivas ligeras y cómodas para mujer",
+    "price": 49.99,
+    "stock": 20,
+    "pictureUrl": "https://http2.mlstatic.com/D_NQ_NP_658289-MLA69873435450_062023-O.webp",
+    "category": "Mujer"
+  },
+  {
+    "id": 5,
+    "title": "Gorra Unisex",
+    "description": "Gorra unisex ajustable con visera curva",
+    "price": 12.99,
+    "stock": 100,
+    "pictureUrl": "https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/dc8dd312874a4b1db224aa8500e5db5b_9366/Gorra_Baseball_UNISEX_Blanco_FK0890_01_standard.jpg",
+    "category": "Ofertas"
+  },
+  {
+    "id": 6,
+    "title": "Vestido de Verano Infantil",
+    "description": "Vestido ligero y fresco para niñas, ideal para el verano",
+    "price": 19.99,
+    "stock": 40,
+    "pictureUrl": "https://m.media-amazon.com/images/I/51vDrcPx0fL._AC_.jpg",
+    "category": "Infantil"
+  },
+  {
+    "id": 7,
+    "title": "Pantalones Cortos Hombre",
+    "description": "Pantalones cortos cómodos y frescos para hombre",
+    "price": 24.99,
+    "stock": 25,
+    "pictureUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQDv15BpJkrF8fZH-iuxx4wvynRKgHqyMSQHg&s",
+    "category": "Hombre"
+  },
+  {
+    "id": 8,
+    "title": "Blusa Elegante Mujer",
+    "description": "Blusa elegante con detalles bordados para mujer",
+    "price": 39.99,
+    "stock": 15,
+    "pictureUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR4VwLvbkASb4c_ESNXP-ys7N_1e24bACQ0lw&s",
+    "category": "Mujer"
+  },
+  {
+    "id": 9,
+    "title": "Sandalias Infantil",
+    "description": "Sandalias cómodas y seguras para niños",
+    "price": 14.99,
+    "stock": 60,
+    "pictureUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQTWvXwVtCBhy_ndx-DDuWW5i8bgxNfQSYRgA&s",
+    "category": "Infantil"
+  },
+  {
+    "id": 10,
+    "title": "Sudadera con Capucha Hombre",
+    "description": "Sudadera con capucha de algodón para hombre",
+    "price": 34.99,
+    "stock": 35,
+    "pictureUrl": "https://image.made-in-china.com/202f0j00IBJoEtTdAckK/New-Arrival-Casual-and-Sports-Unisex-Hoodie-Men-s-Hoodies-Sweatshirts-Custom-Hoodies.webp",
+    "category": "Hombre"
+  },
+  {
+    "id": 11,
+    "title": "Falda Plisada Mujer",
+    "description": "Falda plisada de moda para mujer",
+    "price": 29.99,
+    "stock": 20,
+    "pictureUrl": "https://cdn1.moldesunicose.com/11315-large_default/falda-plisada-mujer-1904.jpg",
+    "category": "Mujer"
+  },
+  {
+    "id": 12,
+    "title": "Conjunto Deportivo Infantil",
+    "description": "Conjunto deportivo cómodo para niños",
+    "price": 22.99,
+    "stock": 45,
+    "pictureUrl": "https://acdn.mitiendanube.com/stores/145/898/products/711-0e8ee8ecc63d200f9f16905601720250-1024-1024.jpg",
+    "category": "Infantil"
+  },
+  {
+    "id": 13,
+    "title": "Bufanda de Lana Unisex",
+    "description": "Bufanda de lana suave y caliente para invierno",
+    "price": 17.99,
+    "stock": 80,
+    "pictureUrl": "https://http2.mlstatic.com/D_NQ_NP_814258-MLA77520458631_072024-O.webp",
+    "category": "Ofertas"
+  },
+  {
+    "id": 14,
+    "title": "Abrigo Largo Mujer",
+    "description": "Abrigo largo y elegante para mujer",
+    "price": 89.99,
+    "stock": 12,
+    "pictureUrl": "https://i.pinimg.com/736x/eb/7f/58/eb7f587eb5c11530eb3e179a3a7d4460.jpg",
+    "category": "Mujer"
+  },
+  {
+    "id": 15,
+    "title": "Zapatos de Vestir Hombre",
+    "description": "Zapatos de vestir elegantes y cómodos para hombre",
+    "price": 59.99,
+    "stock": 18,
+    "pictureUrl": "https://http2.mlstatic.com/D_NQ_NP_964381-MLA70907241265_082023-O.webp",
+    "category": "Hombre"
+  }
+]

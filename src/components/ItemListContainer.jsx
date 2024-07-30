@@ -1,16 +1,43 @@
-import React from 'react';
-// import styled from 'styled-components';
+import React, { useEffect, useState } from 'react';
+import { NavLink, useParams } from 'react-router-dom';
+// import ItemCount from './ItemCount';
+import ItemList from './ItemList';
 
-export default function ItemListContainer({ greeting }) {
-	return <h1 className="display-4 text-center">{greeting}</h1>;
+import data from '../data/mock.json';
+export default function ItemListContainer() {
+	const [products, setProducts] = useState([]);
+	const [loading, setLoading] = useState(true);
+	const { id } = useParams();
+
+	useEffect(() => {
+		new Promise((resolve, reject) => {
+			setTimeout(() => {
+				resolve(data);
+			}, 3000);
+		})
+			.then((data) => {
+				if (!id) {
+					setProducts(data);
+				} else {
+					const filtered = products.filter((prod) => prod.category === id);
+					setProducts(filtered);
+				}
+			})
+			.finally(() => setLoading(false));
+	}, [id]);
+
+	if (loading) {
+		return <h1>Loading...</h1>;
+	}
+
+	if (data.length === 0) {
+		return <h1>No hay productos disponibles...</h1>;
+	}
+	return (
+		<div>
+			<h1 className="display-4 text-center">Productos</h1>;
+			{/* <ItemCount product="Camisa tiger" /> */}
+			<ItemList products={products} />
+		</div>
+	);
 }
-// export default function ItemListContainer({ greeting }) {
-// 	return <MensajeDeBienvenida>{greeting}</MensajeDeBienvenida>;
-// }
-
-// const MensajeDeBienvenida = styled.h2`
-// 	font-size: 80px;
-// 	text-align: center;
-// 	padding: 15px;
-// 	background-color: ghostwhite;
-// `;
