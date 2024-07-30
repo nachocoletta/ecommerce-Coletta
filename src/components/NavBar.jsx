@@ -11,7 +11,7 @@ export default function NavBar() {
 			<Navbar bg="dark" data-bs-theme="dark">
 				<Container>
 					{/* <img src={logo} alt="logo" style={{ width: '50px' }} /> */}
-					<Nav.Link as={NavLink} to="/" style={{ 'text-decoration': 'none' }}>
+					<Nav.Link as={NavLink} to="/" style={{ textDecoration: 'none' }}>
 						<Navbar.Brand style={{ fontSize: '35px', fontFamily: 'cursive' }}>
 							Caniball
 						</Navbar.Brand>

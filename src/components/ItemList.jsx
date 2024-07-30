@@ -7,8 +7,9 @@ export default function ItemList({ products }) {
 			{products.map((product) => {
 				return (
 					<NavLink
+						id={product.id}
 						to={`/item/${product.id}`}
-						style={{ 'text-decoration': 'none' }}
+						style={{ textDecoration: 'none' }}
 					>
 						<Item
 							id={product.id}
