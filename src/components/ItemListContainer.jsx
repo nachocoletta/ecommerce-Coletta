@@ -18,7 +18,6 @@ export default function ItemListContainer() {
 			.then((data) => {
 				if (!id) {
 					setProducts(data);
-					// setFilteredProducts(data);
 				} else {
 					const filtered = data.filter((prod) => prod.category === id);
 					setProducts(filtered);
@@ -35,10 +34,12 @@ export default function ItemListContainer() {
 		return <h1>No hay productos disponibles...</h1>;
 	}
 	return (
-		<div className="d-flex">
+		<div className="conatiner">
 			<h1 className="display-4 text-center">Productos</h1>;
-			{/* <ItemCount product="Camisa tiger" /> */}
-			<ItemList products={products} />
+			<div className="row">
+				{/* <ItemCount product="Camisa tiger" /> */}
+				<ItemList products={products} />
+			</div>
 		</div>
 	);
 }
