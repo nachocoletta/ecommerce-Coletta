@@ -3,7 +3,7 @@ import { Container } from 'react-bootstrap';
 import { NavLink, useParams } from 'react-router-dom';
 
 import { getFirestore, getDoc, doc, query, where } from 'firebase/firestore';
-import products from '../data/mock.json';
+// import products from '../data/mock.json';
 
 import Nav from 'react-bootstrap/Nav';
 import { ItemContext } from '../context/ItemsContext';
@@ -14,20 +14,24 @@ export default function ItemDetailContainer() {
 	const [product, setProduct] = useState(null);
 	const [loading, setLoading] = useState(true);
 
-	const variable = useContext(ItemContext);
+	const { addItem, removeItem } = useContext(ItemContext);
 
-	useEffect(() => {
-		new Promise((resolve, reject) =>
-			setTimeout(() => {
-				resolve(product);
-			}, 1500)
-		)
-			.then(() => {
-				let findedProduct = products.find((prod) => prod.id === Number(id));
-				setProduct(findedProduct);
-			})
-			.finally(() => setLoading(false));
-	}, [id]);
+	const onAdd = (count) => {
+		addItem({ ...product, quantity: count });
+	};
+
+	// useEffect(() => {
+	// 	new Promise((resolve, reject) =>
+	// 		setTimeout(() => {
+	// 			resolve(product);
+	// 		}, 1500)
+	// 	)
+	// 		.then(() => {
+	// 			let findedProduct = products.find((prod) => prod.id === Number(id));
+	// 			setProduct(findedProduct);
+	// 		})
+	// 		.finally(() => setLoading(false));
+	// }, [id]);
 
 	useEffect(() => {
 		const db = getFirestore();
@@ -35,7 +39,9 @@ export default function ItemDetailContainer() {
 		const refDoc = doc(db, 'products', id);
 
 		getDoc(refDoc)
-			.then((snapshot) => {})
+			.then((snapshot) => {
+				setProduct({ id: snapshot.id, ...snapshot.data() });
+			})
 			.finally(() => setLoading(false));
 	}, [id]);
 
@@ -61,7 +67,7 @@ export default function ItemDetailContainer() {
 			<p>Stock: {product.stock}</p>
 			<img src={product.pictureUrl} alt={product.title} />
 			{/* <button onClick={() => onAdd(product)}>Add</button> */}
-			<ItemCount product={product} />
+			<ItemCount product={product} stock={product.stock} onAdd={onAdd} />
 		</Container>
 	);
 }
