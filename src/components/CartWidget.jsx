@@ -5,6 +5,9 @@ import { ItemContext } from '../context/ItemsContext';
 
 export default function CartWidget() {
 	const { items } = useContext(ItemContext);
+
+	const quantity = items.reduce((acc, act) => acc + act.quantity, 0);
+
 	return (
 		<Link to="/cart">
 			<img
@@ -31,7 +34,7 @@ export default function CartWidget() {
 					transform: 'translate(-50%, -50%)',
 				}}
 			>
-				{items.length}
+				{quantity}
 			</p>
 		</Link>
 	);

@@ -4,8 +4,6 @@ import './App.css';
 import ItemListContainer from './components/ItemListContainer';
 import { Provider } from './context/ItemsContext';
 import NavBar from './components/NavBar';
-// import "bootstrap/dist/css/bootstrap.min.css";
-import data from './data/mock.json';
 import NotFound from './components/NotFound';
 import ItemDetailContainer from './components/ItemDetailContainer';
 import Cart from './components/Cart';

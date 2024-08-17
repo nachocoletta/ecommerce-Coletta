@@ -11,8 +11,6 @@ import {
 	where,
 } from 'firebase/firestore';
 
-// import data from '../data/mock.json';
-
 export default function ItemListContainer() {
 	const [products, setProducts] = useState([]);
 	const [loading, setLoading] = useState(true);
