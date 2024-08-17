@@ -84,46 +84,79 @@ export default function Checkout({ total }) {
 	const hasErrors = Object.keys(errors).length > 0;
 
 	return (
-		<Container>
+		<Container className="my-4">
 			<form>
-				<div>
-					<label>Nombre</label>
-					<input value={buyer.name} onChange={handleChange} name="name" />
-					{errors.name && <p style={{ color: 'red' }}>{errors.name}</p>}
-
-					<label>Teléfono</label>
-					<input value={buyer.phone} onChange={handleChange} name="phone" />
-					{errors.phone && <p style={{ color: 'red' }}>{errors.phone}</p>}
-
-					<label>Email</label>
-					<input value={buyer.email} onChange={handleChange} name="email" />
-					{errors.email && <p style={{ color: 'red' }}>{errors.email}</p>}
-
-					<label>Repetir Email</label>
+				<div className="mb-3">
+					<label className="form-label">Nombre</label>
 					<input
+						type="text"
+						className={`form-control ${errors.name ? 'is-invalid' : ''}`}
+						value={buyer.name}
+						onChange={handleChange}
+						name="name"
+					/>
+					{errors.name && <div className="invalid-feedback">{errors.name}</div>}
+				</div>
+
+				<div className="mb-3">
+					<label className="form-label">Teléfono</label>
+					<input
+						type="text"
+						className={`form-control ${errors.phone ? 'is-invalid' : ''}`}
+						value={buyer.phone}
+						onChange={handleChange}
+						name="phone"
+					/>
+					{errors.phone && (
+						<div className="invalid-feedback">{errors.phone}</div>
+					)}
+				</div>
+
+				<div className="mb-3">
+					<label className="form-label">Email</label>
+					<input
+						type="email"
+						className={`form-control ${errors.email ? 'is-invalid' : ''}`}
+						value={buyer.email}
+						onChange={handleChange}
+						name="email"
+					/>
+					{errors.email && (
+						<div className="invalid-feedback">{errors.email}</div>
+					)}
+				</div>
+
+				<div className="mb-4">
+					<label className="form-label">Repetir Email</label>
+					<input
+						type="email"
+						className={`form-control ${
+							errors.emailRepeated ? 'is-invalid' : ''
+						}`}
 						value={buyer.emailRepeated}
 						onChange={handleChange}
 						name="emailRepeated"
 					/>
 					{errors.emailRepeated && (
-						<p style={{ color: 'red' }}>{errors.emailRepeated}</p>
+						<div className="invalid-feedback">{errors.emailRepeated}</div>
 					)}
 				</div>
+
+				<div className="text-center">
+					<Button
+						variant="success"
+						size="lg"
+						className="me-2"
+						disabled={hasErrors}
+						onClick={handleOrder}
+					>
+						Finalizar compra
+					</Button>
+					<Button variant="outline-danger" size="lg" onClick={reset}>
+						Vaciar carrito
+					</Button>
+				</div>
 			</form>
-			<div className="text-center mt-4">
-				<Button
-					variant="success"
-					size="lg"
-					className="me-2"
-					disabled={hasErrors}
-					onClick={handleOrder}
-				>
-					Finalizar compra
-				</Button>
-				<Button variant="outline-danger" size="lg" onClick={reset}>
-					Vaciar carrito
-				</Button>
-			</div>
 		</Container>
 	);
 }
