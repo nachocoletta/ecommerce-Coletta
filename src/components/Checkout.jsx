@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import { ItemContext } from '../context/ItemsContext';
 import { Container, Button } from 'react-bootstrap';
 import { getFirestore, addDoc, collection } from 'firebase/firestore';
@@ -13,14 +13,20 @@ const initialValues = {
 export default function Checkout({ total }) {
 	const [buyer, setBuyer] = useState(initialValues);
 	const [errors, setErrors] = useState({});
+	const [isButtonDisabled, setIsButtonDisabled] = useState(true);
 	const { reset, items } = useContext(ItemContext);
+
+	useEffect(() => {
+		// Validate buyer data whenever it changes
+		const validationErrors = validate(buyer);
+		setErrors(validationErrors);
+		setIsButtonDisabled(Object.keys(validationErrors).length > 0);
+	}, [buyer]);
 
 	const handleChange = (e) => {
 		const { name, value } = e.target;
 		const updatedBuyer = { ...buyer, [name]: value };
 		setBuyer(updatedBuyer);
-		const validationErrors = validate(updatedBuyer);
-		setErrors(validationErrors);
 	};
 
 	const validateEmail = (email) => {
@@ -80,8 +86,6 @@ export default function Checkout({ total }) {
 			}
 		});
 	};
-
-	const hasErrors = Object.keys(errors).length > 0;
 
 	return (
 		<Container className="my-4">
@@ -147,7 +151,7 @@ export default function Checkout({ total }) {
 						variant="success"
 						size="lg"
 						className="me-2"
-						disabled={hasErrors}
+						disabled={isButtonDisabled}
 						onClick={handleOrder}
 					>
 						Finalizar compra
