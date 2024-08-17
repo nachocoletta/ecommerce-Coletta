@@ -1,11 +1,15 @@
-import React from 'react';
-// import { FaShoppingCart } from 'react-icons/fa';
+import React, { useContext } from 'react';
+import { Link } from 'react-router-dom';
 import cart from '../assets/images/cart.jpg';
-import styled from 'styled-components';
+import { ItemContext } from '../context/ItemsContext';
 
 export default function CartWidget() {
+	const { items } = useContext(ItemContext);
+
+	const quantity = items.reduce((acc, act) => acc + act.quantity, 0);
+
 	return (
-		<>
+		<Link to="/cart">
 			<img
 				src={cart}
 				alt="cart"
@@ -30,8 +34,8 @@ export default function CartWidget() {
 					transform: 'translate(-50%, -50%)',
 				}}
 			>
-				2
+				{quantity}
 			</p>
-		</>
+		</Link>
 	);
 }

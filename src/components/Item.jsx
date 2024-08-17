@@ -1,5 +1,6 @@
 import React from 'react';
 import { Card, Image } from 'react-bootstrap';
+import ItemCount from './ItemCount';
 export default function Item({ id, title, description, stock, image }) {
 	return (
 		<Card id={id} className="col-md4 mb-4 ">

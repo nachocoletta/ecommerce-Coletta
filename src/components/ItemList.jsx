@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import Item from './Item';
 import { NavLink } from 'react-router-dom';
+
 export default function ItemList({ products }) {
 	return (
 		<div className="container">

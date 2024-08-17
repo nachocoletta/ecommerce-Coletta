@@ -1,22 +1,36 @@
-import React, { useEffect, useState } from 'react';
-import { Container } from 'react-bootstrap';
+import React, { useContext, useEffect, useState } from 'react';
+import { Container, Button, Card } from 'react-bootstrap';
 import { NavLink, useParams } from 'react-router-dom';
+import { getFirestore, getDoc, doc } from 'firebase/firestore';
+
 import Nav from 'react-bootstrap/Nav';
-import products from '../data/mock.json';
+import { ItemContext } from '../context/ItemsContext';
+import ItemCount from './ItemCount';
+import NotFound from './NotFound';
+
 export default function ItemDetailContainer() {
 	const { id } = useParams();
 	const [product, setProduct] = useState(null);
 	const [loading, setLoading] = useState(true);
 
+	const { addItem } = useContext(ItemContext);
+
+	const onAdd = (count) => {
+		addItem({ ...product, quantity: count });
+	};
+
 	useEffect(() => {
-		new Promise((resolve, reject) =>
-			setTimeout(() => {
-				resolve(product);
-			}, 3000)
-		)
-			.then(() => {
-				let findedProduct = products.find((prod) => prod.id === Number(id));
-				setProduct(findedProduct);
+		const db = getFirestore();
+
+		const refDoc = doc(db, 'products', id);
+
+		getDoc(refDoc)
+			.then((snapshot) => {
+				if (snapshot.exists()) {
+					setProduct({ id: snapshot.id, ...snapshot.data() });
+				} else {
+					setProduct(null);
+				}
 			})
 			.finally(() => setLoading(false));
 	}, [id]);
@@ -26,21 +40,37 @@ export default function ItemDetailContainer() {
 	}
 
 	if (!product) {
-		return <h1>Producto no encontrado...</h1>;
+		return <NotFound />;
 	}
 
 	return (
-		<Container>
+		<Container className="my-4">
 			<Nav.Link as={NavLink} to="/">
-				<button>Back to Home</button>
+				<Button variant="secondary" className="mb-4">
+					Back to Home
+				</Button>
 			</Nav.Link>
-			<h1>Detalle del producto</h1>
-			<h2>{product.title}</h2>
-			<p>Descripción</p>
-			<p>{product.description}</p>
-			<p>Precio: ${product.price}</p>
-			<p>Stock: {product.stock}</p>
-			<img src={product.pictureUrl} alt={product.title} />
+			<Card className="text-center">
+				<Card.Img
+					variant="top"
+					src={product.pictureUrl}
+					alt={product.title}
+					style={{ height: 'auto', maxHeight: '500px', objectFit: 'contain' }}
+				/>
+				<Card.Body className="d-flex flex-column justify-content-center">
+					<Card.Title>{product.title}</Card.Title>
+					<Card.Text>
+						<strong>Descripción:</strong> {product.description}
+					</Card.Text>
+					<Card.Text>
+						<strong>Precio:</strong> ${product.price}
+					</Card.Text>
+					<Card.Text>
+						<strong>Stock:</strong> {product.stock}
+					</Card.Text>
+					<ItemCount product={product} stock={product.stock} onAdd={onAdd} />
+				</Card.Body>
+			</Card>
 		</Container>
 	);
 }
