@@ -17,7 +17,6 @@ export default function Checkout({ total }) {
 	const { reset, items } = useContext(ItemContext);
 
 	useEffect(() => {
-		// Validate buyer data whenever it changes
 		const validationErrors = validate(buyer);
 		setErrors(validationErrors);
 		setIsButtonDisabled(Object.keys(validationErrors).length > 0);
