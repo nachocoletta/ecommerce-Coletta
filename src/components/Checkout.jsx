@@ -1,6 +1,6 @@
 import React, { useState, useContext } from 'react';
 import { ItemContext } from '../context/ItemsContext';
-import { Container, Button, Form } from 'react-bootstrap';
+import { Container, Button } from 'react-bootstrap';
 import { getFirestore, addDoc, collection } from 'firebase/firestore';
 
 const initialValues = {
@@ -84,63 +84,63 @@ export default function Checkout({ total }) {
 	const hasErrors = Object.keys(errors).length > 0;
 
 	return (
-		<Container>
-			<Form className="mt-4">
-				<Form.Group className="mb-3">
-					<Form.Label>Nombre</Form.Label>
-					<Form.Control
+		<Container className="my-4">
+			<form>
+				<div className="mb-3">
+					<label className="form-label">Nombre</label>
+					<input
 						type="text"
+						className={`form-control ${errors.name ? 'is-invalid' : ''}`}
 						value={buyer.name}
 						onChange={handleChange}
 						name="name"
-						isInvalid={!!errors.name}
 					/>
-					<Form.Control.Feedback type="invalid">
-						{errors.name}
-					</Form.Control.Feedback>
-				</Form.Group>
+					{errors.name && <div className="invalid-feedback">{errors.name}</div>}
+				</div>
 
-				<Form.Group className="mb-3">
-					<Form.Label>Teléfono</Form.Label>
-					<Form.Control
+				<div className="mb-3">
+					<label className="form-label">Teléfono</label>
+					<input
 						type="text"
+						className={`form-control ${errors.phone ? 'is-invalid' : ''}`}
 						value={buyer.phone}
 						onChange={handleChange}
 						name="phone"
-						isInvalid={!!errors.phone}
 					/>
-					<Form.Control.Feedback type="invalid">
-						{errors.phone}
-					</Form.Control.Feedback>
-				</Form.Group>
+					{errors.phone && (
+						<div className="invalid-feedback">{errors.phone}</div>
+					)}
+				</div>
 
-				<Form.Group className="mb-3">
-					<Form.Label>Email</Form.Label>
-					<Form.Control
+				<div className="mb-3">
+					<label className="form-label">Email</label>
+					<input
 						type="email"
+						className={`form-control ${errors.email ? 'is-invalid' : ''}`}
 						value={buyer.email}
 						onChange={handleChange}
 						name="email"
-						isInvalid={!!errors.email}
 					/>
-					<Form.Control.Feedback type="invalid">
-						{errors.email}
-					</Form.Control.Feedback>
-				</Form.Group>
+					{errors.email && (
+						<div className="invalid-feedback">{errors.email}</div>
+					)}
+				</div>
 
-				<Form.Group className="mb-4">
-					<Form.Label>Repetir Email</Form.Label>
-					<Form.Control
+				<div className="mb-4">
+					<label className="form-label">Repetir Email</label>
+					<input
 						type="email"
+						className={`form-control ${
+							errors.emailRepeated ? 'is-invalid' : ''
+						}`}
 						value={buyer.emailRepeated}
 						onChange={handleChange}
 						name="emailRepeated"
-						isInvalid={!!errors.emailRepeated}
 					/>
-					<Form.Control.Feedback type="invalid">
-						{errors.emailRepeated}
-					</Form.Control.Feedback>
-				</Form.Group>
+					{errors.emailRepeated && (
+						<div className="invalid-feedback">{errors.emailRepeated}</div>
+					)}
+				</div>
 
 				<div className="text-center">
 					<Button
@@ -156,7 +156,7 @@ export default function Checkout({ total }) {
 						Vaciar carrito
 					</Button>
 				</div>
-			</Form>
+			</form>
 		</Container>
 	);
 }
