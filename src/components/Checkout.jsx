@@ -1,6 +1,6 @@
 import React, { useState, useContext } from 'react';
 import { ItemContext } from '../context/ItemsContext';
-import { Container, Button } from 'react-bootstrap';
+import { Container, Button, Form } from 'react-bootstrap';
 import { getFirestore, addDoc, collection } from 'firebase/firestore';
 
 const initialValues = {
@@ -85,45 +85,78 @@ export default function Checkout({ total }) {
 
 	return (
 		<Container>
-			<form>
-				<div>
-					<label>Nombre</label>
-					<input value={buyer.name} onChange={handleChange} name="name" />
-					{errors.name && <p style={{ color: 'red' }}>{errors.name}</p>}
+			<Form className="mt-4">
+				<Form.Group className="mb-3">
+					<Form.Label>Nombre</Form.Label>
+					<Form.Control
+						type="text"
+						value={buyer.name}
+						onChange={handleChange}
+						name="name"
+						isInvalid={!!errors.name}
+					/>
+					<Form.Control.Feedback type="invalid">
+						{errors.name}
+					</Form.Control.Feedback>
+				</Form.Group>
 
-					<label>Teléfono</label>
-					<input value={buyer.phone} onChange={handleChange} name="phone" />
-					{errors.phone && <p style={{ color: 'red' }}>{errors.phone}</p>}
+				<Form.Group className="mb-3">
+					<Form.Label>Teléfono</Form.Label>
+					<Form.Control
+						type="text"
+						value={buyer.phone}
+						onChange={handleChange}
+						name="phone"
+						isInvalid={!!errors.phone}
+					/>
+					<Form.Control.Feedback type="invalid">
+						{errors.phone}
+					</Form.Control.Feedback>
+				</Form.Group>
 
-					<label>Email</label>
-					<input value={buyer.email} onChange={handleChange} name="email" />
-					{errors.email && <p style={{ color: 'red' }}>{errors.email}</p>}
+				<Form.Group className="mb-3">
+					<Form.Label>Email</Form.Label>
+					<Form.Control
+						type="email"
+						value={buyer.email}
+						onChange={handleChange}
+						name="email"
+						isInvalid={!!errors.email}
+					/>
+					<Form.Control.Feedback type="invalid">
+						{errors.email}
+					</Form.Control.Feedback>
+				</Form.Group>
 
-					<label>Repetir Email</label>
-					<input
+				<Form.Group className="mb-4">
+					<Form.Label>Repetir Email</Form.Label>
+					<Form.Control
+						type="email"
 						value={buyer.emailRepeated}
 						onChange={handleChange}
 						name="emailRepeated"
+						isInvalid={!!errors.emailRepeated}
 					/>
-					{errors.emailRepeated && (
-						<p style={{ color: 'red' }}>{errors.emailRepeated}</p>
-					)}
+					<Form.Control.Feedback type="invalid">
+						{errors.emailRepeated}
+					</Form.Control.Feedback>
+				</Form.Group>
+
+				<div className="text-center">
+					<Button
+						variant="success"
+						size="lg"
+						className="me-2"
+						disabled={hasErrors}
+						onClick={handleOrder}
+					>
+						Finalizar compra
+					</Button>
+					<Button variant="outline-danger" size="lg" onClick={reset}>
+						Vaciar carrito
+					</Button>
 				</div>
-			</form>
-			<div className="text-center mt-4">
-				<Button
-					variant="success"
-					size="lg"
-					className="me-2"
-					disabled={hasErrors}
-					onClick={handleOrder}
-				>
-					Finalizar compra
-				</Button>
-				<Button variant="outline-danger" size="lg" onClick={reset}>
-					Vaciar carrito
-				</Button>
-			</div>
+			</Form>
 		</Container>
 	);
 }
