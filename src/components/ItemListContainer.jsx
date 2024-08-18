@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { NavLink, useParams } from 'react-router-dom';
-// import ItemCount from './ItemCount';
+import { useParams } from 'react-router-dom';
 import ItemList from './ItemList';
 
 import {
@@ -38,14 +37,10 @@ export default function ItemListContainer() {
 		return <h1>Loading...</h1>;
 	}
 
-	// if (data.length === 0) {
-	// 	return <h1>No hay productos disponibles...</h1>;
-	// }
 	return (
 		<div className="conatiner">
 			<h1 className="display-4 text-center">Productos</h1>;
 			<div className="row">
-				{/* <ItemCount product="Camisa tiger" /> */}
 				<ItemList products={products} />
 			</div>
 		</div>
