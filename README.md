@@ -18,24 +18,47 @@ Bienvenido a Caniball, un ecommerce de ropa donde ofrecemos una amplia variedad 
 ## Instalación
 
 1. Clona este repositorio:
-   git clone https://github.com/tu-usuario/ecommerce-Coletta.git
+
+```bash
+   git clone https://github.com/nachocoletta/ecommerce-Coletta.git
+```
 
 2. Navega al directorio del proyecto:
+
+```bash
    cd ecommerce-Coletta
+```
 
 3. Instala dependencias
+
+```bash
    npm install
+```
 
 4. Inicia la aplicación en local:
+
+```bash
    npm run dev
+```
 
 5. Accede a la aplicación desde tu navegador en la siguiente dirección:
+
+```bash
    http://localhost:5173
+```
 
 ## Despliegue
 
-El ecommerce está desplegado en Vercel y es accesible en la siguiente URL: https://ecommerce-coletta.vercel.app/
+El ecommerce está desplegado en Vercel y es accesible en la siguiente URL:
+
+```bash
+  https://ecommerce-coletta.vercel.app/
+```
 
 ## Uso
 
-Explora las categorías, añade productos al carrito y finaliza tu compra directamente en la versión en producción en https://ecommerce-coletta.vercel.app/
+Explora las categorías, añade productos al carrito y finaliza tu compra directamente en la versión en producción en
+
+```bash
+  https://ecommerce-coletta.vercel.app/
+```
