@@ -1,6 +1,6 @@
 # Ecommerce de Ropa - Caniball
 
-Bienvenido a nuestro ecommerce de ropa, donde ofrecemos una amplia variedad de prendas para toda la familia. Nuestro sitio está organizado en cuatro categorías principales para facilitar tu experiencia de compra.
+Bienvenido a Caniball, un ecommerce de ropa donde ofrecemos una amplia variedad de prendas para toda la familia. Nuestro sitio está organizado en cuatro categorías principales para facilitar tu experiencia de compra.
 
 ## Categorías
 
@@ -18,26 +18,24 @@ Bienvenido a nuestro ecommerce de ropa, donde ofrecemos una amplia variedad de p
 ## Instalación
 
 1. Clona este repositorio:
-
-```bash
-git clone https://github.com/tu-usuario/ecommerce-Coletta.git
+   git clone https://github.com/tu-usuario/ecommerce-Coletta.git
 
 2. Navega al directorio del proyecto:
-cd ecommerce-Coletta
+   cd ecommerce-Coletta
 
 3. Instala dependencias
-npm install
+   npm install
 
 4. Inicia la aplicación en local:
-npm run dev
+   npm run dev
 
 5. Accede a la aplicación desde tu navegador en la siguiente dirección:
-http://localhost:5173
+   http://localhost:5173
 
 ## Despliegue
+
 El ecommerce está desplegado en Vercel y es accesible en la siguiente URL: https://ecommerce-coletta.vercel.app/
 
 ## Uso
-Explora las categorías, añade productos al carrito y finaliza tu compra directamente en la versión en producción en https://ecommerce-coletta.vercel.app/.
 
-```
+Explora las categorías, añade productos al carrito y finaliza tu compra directamente en la versión en producción en https://ecommerce-coletta.vercel.app/
