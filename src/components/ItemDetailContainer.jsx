@@ -55,7 +55,7 @@ export default function ItemDetailContainer() {
 					variant="top"
 					src={product.pictureUrl}
 					alt={product.title}
-					style={{ height: 'auto', maxHeight: '500px', objectFit: 'contain' }}
+					style={{ height: 'auto', maxHeight: '300px', objectFit: 'contain' }}
 				/>
 				<Card.Body className="d-flex flex-column justify-content-center">
 					<Card.Title>{product.title}</Card.Title>
