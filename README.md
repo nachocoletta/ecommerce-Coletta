@@ -1,8 +1,43 @@
-# React + Vite
+# Ecommerce de Ropa - Caniball
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Bienvenido a nuestro ecommerce de ropa, donde ofrecemos una amplia variedad de prendas para toda la familia. Nuestro sitio está organizado en cuatro categorías principales para facilitar tu experiencia de compra.
 
-Currently, two official plugins are available:
+## Categorías
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Hombre:** Ropa casual, formal y deportiva para todos los estilos y ocasiones.
+- **Mujer:** Una selección de moda femenina que incluye desde básicos hasta las últimas tendencias.
+- **Niños:** Ropa cómoda y duradera para los más pequeños de la casa.
+- **Ofertas:** Descubre nuestras promociones y descuentos en una variedad de productos.
+
+## Tecnologías Utilizadas
+
+- **Frontend:** React.js con Vite
+- **Backend y Base de Datos:** Firebase
+- **Despliegue:** Vercel - [https://ecommerce-coletta.vercel.app/](https://ecommerce-coletta.vercel.app/)
+
+## Instalación
+
+1. Clona este repositorio:
+
+```bash
+git clone https://github.com/tu-usuario/ecommerce-Coletta.git
+
+2. Navega al directorio del proyecto:
+cd ecommerce-Coletta
+
+3. Instala dependencias
+npm install
+
+4. Inicia la aplicación en local:
+npm run dev
+
+5. Accede a la aplicación desde tu navegador en la siguiente dirección:
+http://localhost:5173
+
+## Despliegue
+El ecommerce está desplegado en Vercel y es accesible en la siguiente URL: https://ecommerce-coletta.vercel.app/
+
+## Uso
+Explora las categorías, añade productos al carrito y finaliza tu compra directamente en la versión en producción en https://ecommerce-coletta.vercel.app/.
+
+```

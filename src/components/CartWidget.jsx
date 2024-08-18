@@ -23,7 +23,7 @@ export default function CartWidget() {
 			<p
 				style={{
 					position: 'absolute',
-					top: '20px', // Adjusted top position
+					top: '20px',
 					right: '15px',
 					color: 'white',
 					fontWeight: 'bold',

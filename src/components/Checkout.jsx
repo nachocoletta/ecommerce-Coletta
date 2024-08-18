@@ -97,6 +97,7 @@ export default function Checkout({ total }) {
 						value={buyer.name}
 						onChange={handleChange}
 						name="name"
+						placeholder="Juan Perez"
 					/>
 					{errors.name && <div className="invalid-feedback">{errors.name}</div>}
 				</div>
@@ -109,6 +110,7 @@ export default function Checkout({ total }) {
 						value={buyer.phone}
 						onChange={handleChange}
 						name="phone"
+						placeholder="+54 9 11 3131 2222"
 					/>
 					{errors.phone && (
 						<div className="invalid-feedback">{errors.phone}</div>
@@ -123,6 +125,7 @@ export default function Checkout({ total }) {
 						value={buyer.email}
 						onChange={handleChange}
 						name="email"
+						placeholder="ejemplo@mail.com"
 					/>
 					{errors.email && (
 						<div className="invalid-feedback">{errors.email}</div>
@@ -139,6 +142,7 @@ export default function Checkout({ total }) {
 						value={buyer.emailRepeated}
 						onChange={handleChange}
 						name="emailRepeated"
+						placeholder="ejemplo@mail.com"
 					/>
 					{errors.emailRepeated && (
 						<div className="invalid-feedback">{errors.emailRepeated}</div>

@@ -29,9 +29,6 @@ export default function NavBar() {
 						<Nav.Link as={NavLink} to={`/category/Ofertas`}>
 							Ofertas
 						</Nav.Link>
-						{/* <Nav.Link as={NavLink} to={`/category/Contacto`}>
-							Contacto
-						</Nav.Link> */}
 					</Nav>
 				</Container>
 				<CartWidget />
