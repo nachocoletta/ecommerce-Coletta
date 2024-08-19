@@ -4,6 +4,12 @@ export const ItemContext = createContext();
 
 export const Provider = ({ children }) => {
 	const [items, setItems] = useState([]);
+	const [categories, setCategories] = useState([
+		'Hombre',
+		'Mujer',
+		'Infantil',
+		'Ofertas',
+	]);
 
 	const addItem = (item) => {
 		const alreadyExists = items.some((i) => i.id === item.id);
@@ -32,7 +38,9 @@ export const Provider = ({ children }) => {
 	};
 
 	return (
-		<ItemContext.Provider value={{ items, addItem, reset, removeItem }}>
+		<ItemContext.Provider
+			value={{ items, addItem, reset, removeItem, categories }}
+		>
 			{children}
 		</ItemContext.Provider>
 	);
