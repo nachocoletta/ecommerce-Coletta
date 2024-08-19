@@ -13,7 +13,7 @@ Bienvenido a Caniball, un ecommerce de ropa donde ofrecemos una amplia variedad 
 
 - **Frontend:** React.js con Vite
 - **Backend y Base de Datos:** Firebase
-- **Despliegue:** Vercel - [https://ecommerce-coletta.vercel.app/](https://ecommerce-coletta.vercel.app/)
+- **Despliegue:** Vercel - [https://caniball.vercel.app/](https://caniball.vercel.app/)
 
 ## Instalación
 
@@ -52,7 +52,7 @@ Bienvenido a Caniball, un ecommerce de ropa donde ofrecemos una amplia variedad 
 El ecommerce está desplegado en Vercel y es accesible en la siguiente URL:
 
 ```bash
-  https://ecommerce-coletta.vercel.app/
+  https://caniball.vercel.app/
 ```
 
 ## Uso
@@ -60,5 +60,5 @@ El ecommerce está desplegado en Vercel y es accesible en la siguiente URL:
 Explora las categorías, añade productos al carrito y finaliza tu compra directamente en la versión en producción en
 
 ```bash
-  https://ecommerce-coletta.vercel.app/
+  https://caniball.vercel.app/
 ```
