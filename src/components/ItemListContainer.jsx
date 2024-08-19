@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import { useParams } from 'react-router-dom';
 import ItemList from './ItemList';
+import { ItemContext } from '../context/ItemsContext';
 
 import {
 	getFirestore,
@@ -9,13 +10,21 @@ import {
 	query,
 	where,
 } from 'firebase/firestore';
+import NotFound from './NotFound';
 
 export default function ItemListContainer() {
 	const [products, setProducts] = useState([]);
 	const [loading, setLoading] = useState(true);
 	const { id } = useParams();
 
+	const { categories } = useContext(ItemContext);
+
 	useEffect(() => {
+		if (id && !categories.includes(id)) {
+			setLoading(false);
+			setProducts(null); // No se encontraron productos para la categoría no válida
+			return;
+		}
 		const db = getFirestore();
 
 		const refCollection = !id
@@ -35,6 +44,10 @@ export default function ItemListContainer() {
 
 	if (loading) {
 		return <h1>Loading...</h1>;
+	}
+
+	if (!products) {
+		return <NotFound />;
 	}
 
 	return (
