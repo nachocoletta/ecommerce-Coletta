@@ -1,7 +1,14 @@
 import React, { useState, useContext, useEffect } from 'react';
 import { ItemContext } from '../context/ItemsContext';
 import { Container, Button } from 'react-bootstrap';
-import { getFirestore, addDoc, collection } from 'firebase/firestore';
+import {
+	getFirestore,
+	addDoc,
+	collection,
+	writeBatch,
+	getDoc,
+	doc,
+} from 'firebase/firestore';
 
 const initialValues = {
 	name: '',
@@ -62,28 +69,61 @@ export default function Checkout({ total }) {
 		return errors;
 	};
 
-	const handleOrder = () => {
-		const now = new Date();
-		const order = {
-			date: now.toLocaleDateString(),
-			buyer: {
-				name: buyer.name,
-				phone: buyer.phone,
-				email: buyer.email,
-			},
-			items,
-			total,
-		};
-
+	const handleOrder = async () => {
 		const db = getFirestore();
+		const batch = writeBatch(db);
+
 		const orderCollection = collection(db, 'orders');
 
-		addDoc(orderCollection, order).then(({ id }) => {
-			if (id) {
-				alert(`Su orden: ${id} ha sido generada con éxito`);
-				reset();
+		const outOfStock = [];
+
+		for (const item of items) {
+			const productRef = doc(db, 'products', item.id);
+			const productSnapshot = await getDoc(productRef);
+
+			if (productSnapshot.exists()) {
+				const productData = productSnapshot.data();
+				if (productData.stock >= item.quantity) {
+					batch.update(productRef, {
+						stock: productData.stock - item.quantity,
+					});
+				} else {
+					outOfStock.push(item);
+				}
 			}
-		});
+		}
+
+		if (outOfStock.length === 0) {
+			const now = new Date();
+			const order = {
+				date: now.toLocaleDateString(),
+				buyer: {
+					name: buyer.name,
+					phone: buyer.phone,
+					email: buyer.email,
+				},
+				items,
+				total,
+			};
+
+			try {
+				await batch.commit();
+
+				const docRef = await addDoc(orderCollection, order);
+				alert(`Su orden: ${docRef.id} ha sido generada con éxito`);
+				reset();
+			} catch (error) {
+				console.error('Error al procesar la compra:', error);
+				alert(
+					'Hubo un error al procesar su compra. Por favor, intente de nuevo.'
+				);
+			}
+		} else {
+			const outOfStockNames = outOfStock.map((item) => item.title).join(', ');
+			alert(
+				`Los siguientes productos no tienen suficiente stock: ${outOfStockNames}`
+			);
+		}
 	};
 
 	return (
